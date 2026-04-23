@@ -3,6 +3,11 @@ output "instance_id" {
   value       = module.ec2.id
 }
 
+output "instance_name" {
+  description = "Name of the EC2 instance"
+  value       = "pasha-ec2-development"
+}
+
 output "public_ip" {
   description = "Public IP of the EC2 instance"
   value       = module.ec2.public_ip
@@ -11,4 +16,9 @@ output "public_ip" {
 output "security_group_id" {
   description = "ID of the EC2 security group"
   value       = aws_security_group.ec2.id
+}
+
+output "security_group_name" {
+  description = "Name of the EC2 security group"
+  value       = aws_security_group.ec2.name
 }
