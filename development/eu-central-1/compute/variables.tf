@@ -10,6 +10,6 @@ variable "tags" {
   default = {
     Environment = "development"
     ManagedBy   = "terraform"
-    Project     = "poc"
+    Project     = "pasha"
   }
 }
