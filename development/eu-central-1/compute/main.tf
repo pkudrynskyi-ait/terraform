@@ -48,22 +48,16 @@ module "ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 5.0"
 
-  name = "poc-ec2"
+  name          = "pasha-ec2-development"
+  ami           = data.aws_ami.al2023.id
+  instance_type = var.instance_type
+  subnet_id     = data.aws_subnets.public.ids[0]
 
-  ami                         = data.aws_ami.al2023.id
-  instance_type               = var.instance_type
-  subnet_id                   = data.aws_subnets.public.ids[0]
-  vpc_security_group_ids      = [aws_security_group.ec2.id]
-  associate_public_ip_address = true
+  vpc_security_group_ids = [aws_security_group.ec2.id]
 
-  root_block_device = [
+  tags = merge(
+    var.tags,
     {
-      volume_type           = "gp3"
-      volume_size           = 20
-      delete_on_termination = true
-      encrypted             = true
+      Name = "pasha-ec2-development"
     }
-  ]
-
-  tags = var.tags
-}
+  )
