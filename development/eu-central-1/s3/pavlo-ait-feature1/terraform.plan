@@ -1,0 +1,23 @@
+# S3 Bucket Versioning Plan
+This plan shows the changes that will be applied to enable versioning for the pavlo-ait-feature1 S3 bucket.
+
+## Changes to be applied:
+
+1. Update S3 bucket module configuration:
+   - versioning.enabled: false -> true
+
+## Resource changes:
+
+Terraform will perform the following actions:
+
+  # module.s3_bucket.aws_s3_bucket_versioning.this[0] will be created
+  + resource "aws_s3_bucket_versioning" "this" {
+      + bucket = "pavlo-ait-feature1"
+      + id     = (known after apply)
+
+      + versioning_configuration {
+          + status = "Enabled"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
