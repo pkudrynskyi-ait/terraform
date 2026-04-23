@@ -1,0 +1,16 @@
+Terraform will perform the following actions:
+
+  # aws_security_group.ec2 will be updated in-place
+  ~ resource "aws_security_group" "ec2" {
+        id                     = "sg-07f761bba3e38b0fd"
+      ~ name                   = "poc-ec2-sg" -> "pasha-ec2-poc-sg"
+      ~ description            = "Security group for poc EC2 instance" -> "Security group for pasha-ec2-poc EC2 instance"
+        tags                   = {
+            "Environment" = "development"
+            "ManagedBy"   = "terraform"
+            "Project"     = "poc"
+        }
+        # (7 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
