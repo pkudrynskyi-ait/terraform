@@ -11,5 +11,6 @@ variable "tags" {
     Environment = "development"
     ManagedBy   = "terraform"
     Project     = "poc"
+    Name        = "pasha-ec2-development"
   }
 }
